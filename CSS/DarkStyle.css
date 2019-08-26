@@ -1,5 +1,5 @@
 .a {
-  background-color: #222831;
+  background-color: #08ffc8;
   height: 500px;
   align-items: center;
 }
@@ -34,12 +34,12 @@ body {
 }
 
 .b {
-  background-color: #393e46;
+  background-color: #fff7f7;
   height: auto;
 }
 
 .c {
-  background-color: #393e46;
+  background-color: #fff7f7;
 }
 
 .d {
@@ -56,7 +56,7 @@ td {
   width: 1600px;
   height: 100px;
   border-radius: 25px;
-  background-color: #d65a31;
+  background-color: #dadada;
   text-align: center;
 }
 
@@ -67,7 +67,7 @@ td {
   padding-right:200px;
 }
 a:link, a:visited {
-  color: white;
+  color: black;
   text-decoration: none;
 }
 
