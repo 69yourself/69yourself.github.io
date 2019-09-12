@@ -129,13 +129,16 @@
                 <h5>Storage:</h5>
                 <select name="Storage" id="Storage2" required>
                   <script type="text/javascript">
-                    var opr = "";
+                  function changeAllToPos(){
+                    
+                  }
                     var num = document.getElementById('Storage2').value;
                     var headerCont = document.getElementById('Storage2').text;
                     switch (num) {
                       case '49.99':
                         headerCont = "-" + headerCont;
                         break;
+
 
                     }
                     writeln("<option value=\"49.99\" selected>128GB");
