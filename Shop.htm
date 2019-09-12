@@ -128,24 +128,6 @@
               <td class="specstd">
                 <h5>Storage:</h5>
                 <select name="Storage" id="Storage2" required>
-                  <script type="text/javascript">
-                  function changeAllToPos(){
-                    
-                  }
-                    var num = document.getElementById('Storage2').value;
-                    var headerCont = document.getElementById('Storage2').text;
-                    switch (num) {
-                      case '49.99':
-                        headerCont = "-" + headerCont;
-                        break;
-
-
-                    }
-                    writeln("<option value=\"49.99\" selected>128GB");
-                    writeln("</option> <
-                      option value = \"99.99\">256GB +$99.99</option> <
-                      option value = \"199.99\">512GB +199.99</option>")
-                  </script>
                   <option value="49.99" selected>128GB</option> <!-- $129-->
                   <option value="99.99">256GB +$99.99</option>
                   <option value="199.99">512GB +199.99</option>
@@ -305,8 +287,19 @@
   </div>
   <script type="text/javascript">
     var TotalCost = 0.00;
-    //document.getElementById("SpecMacAir").style.display = "none";
     window.onload = hideAll();
+
+    function changeAllToPosExcept(Me) {
+      CompNum = getNum(Me);
+      var allIds = ['CPU'.concat(CompNum), 'Storage'.concat(CompNum), 'RAM'.concat(CompNum), 'Display'.concat(CompNum)];
+      for (var id of allIds) {
+        var headerCont = document.getElementById(id).text;
+        if (id == document.getElementById(Me)){
+          changeStr(headerCont,"+" ,"-");
+        }
+      }
+  }
+
 
     function minusValue(el) {
       var valueToMinus = document.getElementById(el).value
@@ -392,6 +385,14 @@
 
     function hide(el) {
       document.getElementById(el).style.display = "none";
+    }
+
+    function changeStr(str2change, LettertoReplace, newEl){
+      for(var i = 0; i < str2change.length; i++){
+        if(str2change.charAt(i) == LettertoReplace){
+          str2change.replace(LettertoReplace, newEl);
+        }
+      }
     }
   </script>
 </body>
