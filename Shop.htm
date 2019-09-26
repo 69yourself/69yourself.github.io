@@ -53,19 +53,19 @@
       <tr>
         <td class="Tablemodels">
           <img class="MacPics" onclick="show('specs');" ondblclick="hide('specs'); resetValue();" src="https://images.idgesg.net/images/article/2018/11/macbook-air-2108-hero2-100779122-large.jpg" alt="">
-          <h4 class="coolFont">Macbook Air</h4>
+          <h4 class="coolFont">Macbook air</h4>
           <table id="specs" style="width:20%;">
             <caption class="coolFont">Specifications</caption>
             <tr>
               <td class="specstd">
                 <h5>RAM:</h5>
-                <select name="RAM" id="RAM1" onchange="AddValue('RAM1');" required>
+                <select name="RAM" id="RAM1" onchange="AddValue('RAM1'); " required>
                   <optgroup label="1.6 GHz">
-                    <option value="349.99" selected>4Gbs of Ram</option>
+                    <option value="349.99" selected>4Gbs of Ram +$349.99</option>
                     <option value="449.99">8Gbs of Ram +$599.99</option>
                   </optgroup>
                   <optgroup label="2.2 GHz">
-                    <option value="499.99" selected>4Gbs of Ram</option>
+                    <option value="499.99" selected>4Gbs of Ram +$499.99</option>
                     <option value="599.99">8Gbs of Ram +$599.99</option>
                   </optgroup>
                 </select>
@@ -73,14 +73,14 @@
               <td class="specstd">
                 <h5>Display:</h5>
                 <select name="Display" id="Display1" onchange="AddValue('Display1');" required>
-                  <option value="299.99" selected>11.6"</option>
-                  <option value="399.99">13.3"</option>
+                  <option value="299.99" selected>11.6" +$299.99</option>
+                  <option value="399.99">13.3" +$399.99</option>
                 </select>
               </td>
               <td class="specstd">
                 <h5>Storage:</h5>
                 <select name="Storage" id="Storage1" onchange="AddValue('Storage1');" required>
-                  <option value="129.99" selected>128GB</option>
+                  <option value="129.99" selected>128GB +$129.99</option>
                   <option value="199.99">256GB +$199.99</option>
                   <option value="299.99">512GB +$299.99</option>
                   <option value="389.99">1TB +$389.99</option>
@@ -92,12 +92,12 @@
                 <h5>CPU:</h5>
                 <select name="CPU" id="CPU1" onchange="AddValue('CPU1')" required>
                   <optgroup label="1.6 GHz">
-                    <option value="0.00" selected>intel core i5</option>
+                    <option value="107.14" selected>intel core i5 +$107.14</option>
                     <option value="150.00">intel core i7 +$150</option>
                   </optgroup>
                   <optgroup label="2.2 HGz">
-                    <option value="0.00">intel core i5</option>
-                    <option value="150">intel core i7 +$150</option>
+                    <option value="106.14">intel core i5 +$106.14</option>
+                    <option value="150.00">intel core i7 +$150</option>
                   </optgroup>
                 </select>
               </td>
@@ -287,24 +287,39 @@
   </div>
   <script type="text/javascript">
     var TotalCost = 0.00;
+
     window.onload = hideAll();
 
     function changeAllToPosExcept(Me) {
-      CompNum = getNum(Me);
-      var allIds = ['CPU'.concat(CompNum), 'Storage'.concat(CompNum), 'RAM'.concat(CompNum), 'Display'.concat(CompNum)];
-      for (var id of allIds) {
-        var headerCont = document.getElementById(id).text;
-        if (id == document.getElementById(Me)){
-          changeStr(headerCont,"+" ,"-");
+        var x = getArrayofvaluesFor(Me);
+        x.sort();
+        var CurrentlySelected = parseFloat(document.getElementById(Me).value);
+        for (element of x){
+          var CurrentElement = document.getElementById(Me);
+          if ((element < CurrentlySelected) && StrContains(String(CurrentElement.options[x.indexOf(element)].text), "+")) {
+
+              CurrentElement.options[x.indexOf(element)].text = String(CurrentElement.options[x.indexOf(element)].text).replace("+$" + String(element.toFixed(2)), "-$" + String(CurrentlySelected - element));
+
+          } else if (element > CurrentlySelected && StrContains(String(CurrentElement.options[x.indexOf(element)].text), "-")) {
+
+              CurrentElement.options[x.indexOf(element)].text = String(CurrentElement.options[x.indexOf(element)].text).replace("-$" + String(CurrentElement - element), "+$" + String(element.toFixed(2)));
+          }
+        }
+
+
+    }
+
+    function StrContains(str, element){
+       var ContainsQstn = false;
+      for (var i = 0; i < str.length; i++) {
+        if (str.charAt(i) == element) {
+          ContainsQstn = true;
         }
       }
-  }
 
-
-    function minusValue(el) {
-      var valueToMinus = document.getElementById(el).value
-      TotalCost -= valueToMinus;
+      return ContainsQstn;
     }
+
 
     function getNum(id) {
 
@@ -330,20 +345,40 @@
     }
 
     function updateCart() {
-      document.getElementById("TotalAmmount").innerHTML = "$" + (TotalCost);
+      document.getElementById("TotalAmmount").innerHTML = "$" + (TotalCost.toFixed(2));
+
     }
 
+
     function AddValue(el) {
+      changeAllToPosExcept(el);
       var value = parseFloat(document.getElementById(el).value);
+      if(StrContains(String(document.getElementById(el).options[document.getElementById(el).selectedIndex].text), "-") ){
+
+      TotalCost -= value;
+    }else{
       TotalCost += value;
+    }
       updateCart();
       /*
         var x =parseFloat( document.getElementById("num1").value);
 
         var y =parseFloat( document.getElementById("num2").value);
         document.getElementById("demo").innerHTML = "=" + (x + y);
+
         */
     }
+
+    function getArrayofvaluesFor(el) {
+      var arr = new Array(4);
+      //document.getElementById(el).options
+      for (var i = 0; i < 4; i++) {
+        arr[i] = parseFloat(document.getElementById(el).options[i].value);
+      }
+      return arr;
+    }
+
+
 
     function SumAllValues(CompNum) {
       var allIds = ['CPU'.concat(CompNum), 'Storage'.concat(CompNum), 'RAM'.concat(CompNum), 'Display'.concat(CompNum)];
@@ -387,13 +422,6 @@
       document.getElementById(el).style.display = "none";
     }
 
-    function changeStr(str2change, LettertoReplace, newEl){
-      for(var i = 0; i < str2change.length; i++){
-        if(str2change.charAt(i) == LettertoReplace){
-          str2change.replace(LettertoReplace, newEl);
-        }
-      }
-    }
   </script>
 </body>
 
