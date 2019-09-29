@@ -93,11 +93,9 @@
                 <select name="CPU" id="CPU1" onchange="AddValue('CPU1')" required>
                   <optgroup label="1.6 GHz">
                     <option value="107.14" selected>intel core i5 +$107.14</option>
-                    <option value="150.00">intel core i7 +$150</option>
                   </optgroup>
                   <optgroup label="2.2 HGz">
-                    <option value="106.14">intel core i5 +$106.14</option>
-                    <option value="150.00">intel core i7 +$150</option>
+                    <option value="297.00">intel core i7 +$297.00</option>
                   </optgroup>
                 </select>
               </td>
@@ -287,38 +285,136 @@
   </div>
   <script type="text/javascript">
     var TotalCost = 0.00;
-
     window.onload = hideAll();
 
-    function changeAllToPosExcept(Me) {
-        var x = getArrayofvaluesFor(Me);
-        x.sort();
-        var CurrentlySelected = parseFloat(document.getElementById(Me).value);
-        for (element of x){
-          var CurrentElement = document.getElementById(Me);
-          if ((element < CurrentlySelected) && StrContains(String(CurrentElement.options[x.indexOf(element)].text), "+")) {
+    //Functions for changing all the other elements to Positive or negative start here and
+    //Changes each number sign for each option in the select
 
-              CurrentElement.options[x.indexOf(element)].text = String(CurrentElement.options[x.indexOf(element)].text).replace("+$" + String(element.toFixed(2)), "-$" + String(CurrentlySelected - element));
-
-          } else if (element > CurrentlySelected && StrContains(String(CurrentElement.options[x.indexOf(element)].text), "-")) {
-
-              CurrentElement.options[x.indexOf(element)].text = String(CurrentElement.options[x.indexOf(element)].text).replace("-$" + String(CurrentElement - element), "+$" + String(element.toFixed(2)));
-          }
-        }
-
-
-    }
-
-    function StrContains(str, element){
-       var ContainsQstn = false;
+    function indexofLastLetter(str) {
+      var pattern =
+      /^\w|\d|\W+$/g; // Pattern checks for digits(\d),words(\w) or(|) Characters that are not words(\W). This starts from the begining of the string(/^/) and goes to the end of the string(/$/) and also include one or more repetitions of said pattern (+)
+      var FinalIndex = 0;
       for (var i = 0; i < str.length; i++) {
-        if (str.charAt(i) == element) {
-          ContainsQstn = true;
+        if (pattern.test(str[i])) {
+          FinalIndex = i;
         }
       }
-
-      return ContainsQstn;
+      return FinalIndex;
     }
+
+    //Current Values start
+    function getCurrentSign(obj) {
+      var VartoReturn = new String();
+      switch (obj.Truth()) {
+        case 'isPos':
+          VartoReturn = '+$';
+          break;
+        case 'isNeg':
+          VartoReturn = '-$';
+          break;
+        case 'isEmpty':
+          VartoReturn = '0';
+          break;
+      };
+
+      return VartoReturn;
+    }
+    //Current Value end
+    //New Value start
+
+    function getValuetoChangeTo(obj, NewNumber) {
+      var newVartoReturn = new String();
+      switch (obj.Truth()) {
+        case 'isMajorque':
+          newVartoReturn = '+$';
+          break;
+        case 'isMenorque':
+          newVartoReturn = '-$';
+          break;
+        case 'isEqual':
+          newVartoReturn = '';
+          NewNumber = '';
+          break;
+      };
+      return (" " + newVartoReturn + NewNumber);
+    }
+
+    //New Value end
+
+    function changeAllToPosExcept(Me) {
+      var varToMaybereturn = 1.00;
+      var x = getArrayofvaluesFor(Me);
+      x.sort();
+      var CurrentElement = document.getElementById(Me);
+      var CurrentlySelected = parseFloat(CurrentElement.value);
+      for (var element of x) {
+        var CurrentString = String(CurrentElement.options[x.indexOf(element)].text);
+        var SetofPossibLeValues = {
+          isPos: CurrentString.includes("+"),
+          isNeg: CurrentString.includes("-"),
+          isEmpty: !CurrentString.includes("$") && (!CurrentString.includes("-") || !CurrentString.incudes("+")),
+          Truth: function() {
+            if (this.isPos) {
+              return 'isPos';
+            } else if (this.isNeg) {
+              return 'isNeg';
+            } else if (this.isEmpty) {
+              return 'isEmpty';
+            }
+
+          }
+        };
+        var SetofOptions = {
+          isMajorque: element > CurrentlySelected,
+          isMenorque: element < CurrentlySelected,
+          isEqual: element == CurrentlySelected,
+          Truth: function() {
+            if (this.isMajorque) {
+              return 'isMajorque';
+            } else if (this.isMenorque) {
+              return 'isMenorque';
+            } else if (this.isEqual) {
+              return 'isEqual';
+            }
+          }
+        };
+        var StrOfcurrentElement = getCurrentSign(SetofPossibLeValues); //Getting current Combination
+        var DifferenceBetweenValues = String(Math.abs(element - CurrentlySelected)); //Getting Difference value to display what would happen if the person where to choose the other Computer component
+        var NewStringToReplaceOldOne = getValuetoChangeTo(SetofOptions, DifferenceBetweenValues); // NewString to replace the old value
+        var LastIndex = CurrentString.length; //Last index of the String
+        var CurrentIndex = 0;
+        switch (StrOfcurrentElement) {
+          case '0':
+            CurrentIndex = indexofLastLetter(CurrentString);
+            var LastLetter = CurrentString[CurrentIndex];
+            CurrentElement.options[x.indexOf(element)].text = CurrentString.replace(CurrentString.substring(CurrentIndex, LastIndex), LastLetter + NewStringToReplaceOldOne);
+            break;
+
+          default:
+            CurrentIndex = CurrentString.indexOf(StrOfcurrentElement); // Index of the Item we wish to change
+            if (SetofOptions.Truth() === 'isEqual'){
+              var patternForNum = /[+-]/g; //Searches for a plus sign(+) or a negative sign (-)
+              var indexofNum = CurrentString.search(patternForNum) + 2; //starting index of the Difference in Value
+              var patternForLastNum = /\d+/g; //Searches for digits only
+              var lastIndexofNum = -1;
+              var match;
+              var count = 0;
+              while (((match = patternForLastNum.exec(CurrentString)) !== null) && count <= 2) {
+                lastIndexofNum = patternForLastNum.lastIndex;
+                count++;
+              }
+              if (SetofPossibLeValues.Truth() === 'isNeg'){
+                varToMaybereturn = -1.00;
+              }
+
+              varToMaybereturn = varToMaybereturn * parseFloat(CurrentString.substring(indexofNum, lastIndexofNum));
+            }
+            CurrentElement.options[x.indexOf(element)].text = CurrentString.replace(CurrentString.substring(CurrentIndex, LastIndex), NewStringToReplaceOldOne);
+        };
+      }
+      return varToMaybereturn;
+    }
+    //Ends here
 
 
     function getNum(id) {
@@ -345,34 +441,25 @@
     }
 
     function updateCart() {
-      document.getElementById("TotalAmmount").innerHTML = "$" + (TotalCost.toFixed(2));
+      document.getElementById("TotalAmmount").innerHTML = "$" + TotalCost.toFixed(2);
 
     }
 
 
     function AddValue(el) {
-      changeAllToPosExcept(el);
+      var maybe = changeAllToPosExcept(el);
       var value = parseFloat(document.getElementById(el).value);
-      if(StrContains(String(document.getElementById(el).options[document.getElementById(el).selectedIndex].text), "-") ){
-
-      TotalCost -= value;
-    }else{
-      TotalCost += value;
-    }
+      if (maybe !== 1.00){
+        value = maybe;
+      }
+        TotalCost += value;
       updateCart();
-      /*
-        var x =parseFloat( document.getElementById("num1").value);
-
-        var y =parseFloat( document.getElementById("num2").value);
-        document.getElementById("demo").innerHTML = "=" + (x + y);
-
-        */
     }
 
     function getArrayofvaluesFor(el) {
-      var arr = new Array(4);
-      //document.getElementById(el).options
-      for (var i = 0; i < 4; i++) {
+      var OptionSize = document.getElementById(el).length;
+      var arr = new Array(OptionSize);
+      for (var i = 0; i < OptionSize; i++) {
         arr[i] = parseFloat(document.getElementById(el).options[i].value);
       }
       return arr;
@@ -421,7 +508,6 @@
     function hide(el) {
       document.getElementById(el).style.display = "none";
     }
-
   </script>
 </body>
 
