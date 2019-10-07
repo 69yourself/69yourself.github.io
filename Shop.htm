@@ -103,8 +103,8 @@
           </table>
         </td>
         <td class="Tablemodels">
-          <img class="MacPics" onclick="show('specspro');" ondblclick="hide('specspro');" style="height: 300%;"
-            src="https://i2.wp.com/9to5toys.com/wp-content/uploads/sites/5/2019/05/2019-macbook-pro.jpg?resize=1500%2C0&quality=82&strip=all&ssl=1" alt="">
+          <img class="MacPics" onclick="show('specspro');" ondblclick="hide('specspro');" style="height: 300%;" src="https://i2.wp.com/9to5toys.com/wp-content/uploads/sites/5/2019/05/2019-macbook-pro.jpg?resize=1500%2C0&quality=82&strip=all&ssl=1"
+            alt="">
           <h4 class="coolFont">Macbook Pro</h4>
           <table id="specspro" style="width:20%;">
             <caption class="coolFont">Specifications</caption>
@@ -166,16 +166,16 @@
               </td>
               <td class="specstd">
                 <h5>Display:</h5>
-                <select name="Display" id="Display3" onchange="AddValue('Display3');"required>
+                <select name="Display" id="Display3" onchange="AddValue('Display3');" required>
                   <option value="0.00" selected>21.5" +$0.00</option>
                   <option value="149.99">27" +$149.99</option>
                 </select>
               </td>
               <td class="specstd">
                 <h5>Storage:</h5>
-                <select name="Storage" id="Storage3" onchange="AddValue('Storage3');"required>
+                <select name="Storage" id="Storage3" onchange="AddValue('Storage3');" required>
                   <optgroup label="Hard Drive">
-                  <option value="0.00" selected>1TB +$0.00</option> <!-- $129-->
+                    <option value="0.00" selected>1TB +$0.00</option> <!-- $129-->
                   </optgroup>
                   <optgroup label="Fusion Drive">
                     <option value="149.99">1TB +$149.99</option>
@@ -187,7 +187,7 @@
               </td>
               <td class="specstd">
                 <h5>CPU:</h5>
-                <select name="CPU" id="CPU3" onchange="AddValue('CPU3');"required>
+                <select name="CPU" id="CPU3" onchange="AddValue('CPU3');" required>
                   <optgroup label="2.3GHz (Boosts up to 3.6GHz)">
                     <option value="0.00" selected>intel core i5 +$0.00</option>
                   </optgroup>
@@ -256,10 +256,14 @@
     <table style="width:10%;">
       <tr>
         <td style="background-color: #fff7f7; padding: 0px; text-align: right;">
-          <h3 class="coolFont" id="TotalAmmount">$0.00</h3>
+          <a onclick="SaveOnlocalStorage();" href="Checkout.htm" >
+            <h3 class="coolFont" id="TotalAmmount">$0.00</h3>
+          </a>
         </td>
-        <td style="background-color: #fff7f7; padding: 0px; width: 50%; " align="left"> <img style="width:100%; float:right; border-radius: 50%;"
-            src="https://media.gettyimages.com/vectors/shopping-cart-icon-silhouette-2-vector-id898295684?s=2048x2048" alt="">
+        <td style="background-color: #fff7f7; padding: 0px; width: 50%; " align="left">
+          <a onclick="SaveOnlocalStorage();" href="Checkout.htm"  >
+            <img style="width:100%; float:right; border-radius: 50%;" src="https://media.gettyimages.com/vectors/shopping-cart-icon-silhouette-2-vector-id898295684?s=2048x2048" alt="">
+          </a>
         </td>
       </tr>
 
@@ -281,6 +285,7 @@
   </div>
   <script type="text/javascript">
     var TotalCost = 0.00;
+    var CurrentlyVissible;
     window.onload = hideAll();
 
     //Functions for changing all the other elements to Positive or negative start here and
@@ -288,7 +293,7 @@
 
     function indexofLastLetter(str) {
       var pattern =
-      /^\w|\d|\W+$/g; // Pattern checks for digits(\d),words(\w) or(|) Characters that are not words(\W). This starts from the begining of the string(/^/) and goes to the end of the string(/$/) and also include one or more repetitions of said pattern (+)
+        /^\w|\d|\W+$/g; // Pattern checks for digits(\d),words(\w) or(|) Characters that are not words(\W). This starts from the begining of the string(/^/) and goes to the end of the string(/$/) and also include one or more repetitions of said pattern (+)
       var FinalIndex = 0;
       for (var i = 0; i < str.length; i++) {
         if (pattern.test(str[i])) {
@@ -375,7 +380,7 @@
           }
         };
         var StrOfcurrentElement = getCurrentSign(SetofPossibLeValues); //Getting current Combination
-        var DifferenceBetweenValues = String( (Math.abs(element - CurrentlySelected)).toFixed(2) ); //Getting Difference value to display what would happen if the person where to choose the other Computer component
+        var DifferenceBetweenValues = String((Math.abs(element - CurrentlySelected)).toFixed(2)); //Getting Difference value to display what would happen if the person where to choose the other Computer component
         var NewStringToReplaceOldOne = getValuetoChangeTo(SetofOptions, DifferenceBetweenValues); // NewString to replace the old value
         var LastIndex = CurrentString.length; //Last index of the String
         var CurrentIndex = 0;
@@ -388,7 +393,7 @@
 
           default:
             CurrentIndex = CurrentString.indexOf(StrOfcurrentElement); // Index of the Item we wish to change
-            if (SetofOptions.Truth() === 'isEqual'){
+            if (SetofOptions.Truth() === 'isEqual') {
               var patternForNum = /[+-]/g; //Searches for a plus sign(+) or a negative sign (-)
               var indexofNum = CurrentString.search(patternForNum) + 2; //starting index of the Difference in Value
               var patternForLastNum = /\d+/g; //Searches for digits only
@@ -399,10 +404,10 @@
                 lastIndexofNum = patternForLastNum.lastIndex;
                 count++;
               }
-              if (SetofPossibLeValues.Truth() === 'isNeg'){
+              if (SetofPossibLeValues.Truth() === 'isNeg') {
                 varToMaybereturn = -1.00;
               }
-                varToMaybereturn = varToMaybereturn * parseFloat(CurrentString.substring(indexofNum, lastIndexofNum));
+              varToMaybereturn = varToMaybereturn * parseFloat(CurrentString.substring(indexofNum, lastIndexofNum));
             }
             CurrentElement.options[x.indexOf(element)].text = CurrentString.replace(CurrentString.substring(CurrentIndex, LastIndex), NewStringToReplaceOldOne);
         };
@@ -411,6 +416,52 @@
     }
     //Ends here
 
+    function SaveOnlocalStorage(){
+
+      if(!AllareHidden()){
+        var IDofCurrentlyViss = GetIDfromCPUName(CurrentlyVissible);
+        var CompNum = getNum(IDofCurrentlyViss);
+        var CPUNum = 'CPU'.concat(CompNum);
+        var SelectedCPU = document.getElementById(CPUNum).options[document.getElementById(CPUNum).selectedIndex].text;
+        var RAMNum = 'RAM'.concat(CompNum);
+        var SelectedRAM = document.getElementById(RAMNum).options[document.getElementById(RAMNum).selectedIndex].text;
+        var StorageNum = 'Storage'.concat(CompNum);
+        var SelectedStorage = document.getElementById(StorageNum).options[document.getElementById(StorageNum).selectedIndex].text;
+        var DisplayNum = 'Display'.concat(CompNum);
+        var SelectedDisplay = document.getElementById(DisplayNum).options[document.getElementById(DisplayNum).selectedIndex].text;
+
+        var everythingyouNeedToknow = {
+          'WhichComputer': CurrentlyVissible,
+          'CentralPU': [SelectedCPU, document.getElementById(CPUNum).value],
+          'StorageSpace': [SelectedStorage, document.getElementById(StorageNum).value],
+          'RandomAM': [SelectedRAM, document.getElementById(RAMNum).value],
+          'DisplaySize': [SelectedDisplay, document.getElementById(DisplayNum)],
+          'CostoTotal': TotalCost
+        };
+      localStorage.setItem("everythingIsHere",everythingyouNeedToknow);
+    }else{
+      localStorage.setItem("everythingIsHere", "None");
+    }
+
+    }
+
+
+    function GetIDfromCPUName(name) {
+      switch (name) {
+        case 'Macbook Air':
+          return 'specs';
+          break;
+        case 'Macbook Pro':
+          return 'specspro';
+          break;
+        case 'iMac':
+          return 'specsiMac';
+          break;
+        case 'iMac Pro':
+          return 'specsiMacPro';
+          break;
+      };
+    }
     function getNum(id) {
 
       switch (id) {
@@ -443,7 +494,7 @@
     function AddValue(el) {
       var maybe = changeAllToPosExcept(el);
       var value = parseFloat(document.getElementById(el).value);
-      if (maybe !== 1.00){
+      if (maybe !== 1.00) {
         value = maybe;
       }
       TotalCost += value;
@@ -459,13 +510,13 @@
       return arr;
     }
 
-    function getCPUfromNumber(num){
+    function getCPUfromNumber(num) {
       switch (num) {
         case '1':
-        return 'specs';
+          return 'specs';
           break;
         case '2':
-        return 'specspro';
+          return 'specspro';
           break;
         case '3':
           return 'specsiMac';
@@ -507,25 +558,25 @@
       resetValue();
     }
 
-    function show(el){
+    function show(el) {
       document.getElementById(el).style.display = "inline";
       hideAllExcept(el);
       reset2Default(el);
       SumAllValues(getNum(el));
       var BasePrices = {
         specs: 1036.12,
-        specspro : 1099.00,
-        specsiMac : 1999.00,
-        specsiMacPro : 4999.00,
-        WhichCPU : function(Computer){
+        specspro: 1099.00,
+        specsiMac: 1999.00,
+        specsiMacPro: 4999.00,
+        WhichCPU: function(Computer) {
           var VartoReturn = 0.00;
-          switch (Computer){
+          switch (Computer) {
             case 'specs':
               VartoReturn = this.specs;
-            break;
+              break;
             case 'specspro':
               VartoReturn = this.specspro;
-            break;
+              break;
             case 'specsiMac':
               VartoReturn = this.specsiMac;
               break;
@@ -537,29 +588,63 @@
         }
       };
       setPrice(BasePrices.WhichCPU(el));
-
+      var ComputerNames = {
+        specs: 'Macbook Air',
+        specspro: 'Macbook Pro',
+        specsiMac: 'iMac',
+        specsiMacPro: 'iMac Pro',
+        WhichCPU: function(Computer) {
+          var VartoReturn = 0.00;
+          switch (Computer) {
+            case 'specs':
+              VartoReturn = this.specs;
+              break;
+            case 'specspro':
+              VartoReturn = this.specspro;
+              break;
+            case 'specsiMac':
+              VartoReturn = this.specsiMac;
+              break;
+            case 'specsiMacPro':
+              VartoReturn = this.specsiMacPro;
+              break;
+          }
+          return VartoReturn;
+        }
+      };
+      CurrentlyVissible = ComputeNames.WhichCPU(el);
     }
 
     function resetSelectBoxById(eid) {
-        document.getElementById(eid).options[0].selected = 'selected';
+      document.getElementById(eid).options[0].selected = 'selected';
     }
 
+    function AllareHidden(){
+        // var ids = ['specs', 'specspro', 'specsiMac', 'specsiMacPro'];
+        // var AllHidden = true;
+        // for(var id of ids){
+        //   if(document.getElementById(el).style.display !== 'none'){
+        //     AllHidden = false;
+        //     break;
+        //   }
+        // }
+        // return AllHidden;
+        return CurrentlyVissible == 'Macbook Air' || CurrentlyVissible == 'Macbook Pro' || CurrentlyVissible = 'iMac Pro' || CurrentlyVissible = 'iMac';
+    }
 
 
     function hide(el) {
       document.getElementById(el).style.display = "none";
       resetValue();
-
     }
 
-    function reset2Default(el){
+    function reset2Default(el) {
       var CompNum = getNum(el);
       var allIds = ['CPU'.concat(CompNum), 'Storage'.concat(CompNum), 'RAM'.concat(CompNum), 'Display'.concat(CompNum)];
-      for(id of allIds){
+      for (id of allIds) {
         resetSelectBoxById(id);
       }
     }
-
   </script>
 </body>
 

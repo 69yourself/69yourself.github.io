@@ -1,0 +1,74 @@
+<?xml version = "1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3c.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xlmns="http://www.w3c.org/1999/xhtml">
+
+<head>
+  <title>Checkkout</title>
+  <link rel="stylesheet" href="CSS/style.css">
+  <style media="screen">
+    .cuatroElements {
+      padding-right: 50px;
+      padding-left: 50px;
+    }
+
+    .tdFormat{
+      padding-right:40px;
+      padding-left: 40px;
+    }
+
+
+  </style>
+  <script type="text/javascript">
+
+  </script>
+</head>
+
+<body class="b">
+  <table cellspacing = "0" align = "center" border="1" style = "border-style: solid;">
+    <caption>
+      <h3 class="coolFont">Checkout</h3>
+    </caption>
+    <thead>
+      <th class = "tdFormat">Component</th>
+      <th class = "tdFormat">Cost</th>
+    </thead>
+    <script type="text/javascript">
+    var everything = localStorage.getItem("everythingIsHere");
+    document.writeln(everything.WhichComputer);
+      for (var element in everything) {
+        document.writeln("<tr>");
+        if (element !== 'WhichComputer' && !== 'CostoTotal') {
+          document.writeln("<td>" + element[0] + "</td>");
+          if (element[1] !== 0.00) {
+            document.writeln("<td>" + element[1] + "</td>");
+          }
+        }
+        document.writeln("</tr>");
+      }
+      document.writeln("<tr>")
+        document.writeln("<td> Total Cost => </td>");
+        document.writeln("<td>" + String(everything.CostoTotal) "</td>");
+      document.writeln("</tr>")
+      </script>
+  </table>
+  <div class="c" style="height:400px;">
+    <table style="border-spacing:10px; height:200px; ">
+      <tr>
+        <td class="coolFont" style="
+        border-collapse: collapse;"> <a class="linkBox cuatroElements" href="Index.html">Home Page</a> </td>
+        <td class="coolFont" style="
+        border-collapse: collapse;"> <a class="linkBox cuatroElements" href="AboutMe.html">About Me</a> </td>
+        <td class="coolFont" style="
+        border-collapse: collapse;"> <a class="linkBox cuatroElements" href="ContactMe.html">Contact Me</a> </td>
+        <td class="coolFont" style="
+        border-collapse: collapse;"> <a class="linkBox cuatroElements" href="DarkIndex.html">Dark Mode</a> </td>
+      </tr>
+
+    </table>
+
+  </div>
+
+</body>
+
+</html>
