@@ -219,39 +219,28 @@
               <td class="specstd">
                 <h5>RAM:</h5>
                 <select name="RAM" id="RAM4" onchange="AddValue('RAM4');" required>
-                  <option value="0.00" selected>4Gbs of Ram +$0.00</option>
+                  <option value="0.00" selected>Radeon Pro Vega 56 with 8GB HBM2 memory +$0.00</option>
                   <!--$499.99 -->
-                  <option value="0.00">8Gbs of Ram +$599.99</option>
                 </select>
               </td>
               <td class="specstd">
                 <h5>Display:</h5>
                 <select name="Display" id="Display4" onchange="AddValue('Display4');" required>
-                  <option value="0.00" selected>11.6" +$0.00</option>
-                  <option value="0.00">13.3" +$0.00</option>
+                  <option value="0.00" selected>27" Retina 5K (5120 x 2880) +$0.00</option>
                 </select>
               </td>
               <td class="specstd">
                 <h5>Storage:</h5>
                 <select name="Storage" id="Storage4" onchange="AddValue('Storage4');" required>
-                  <option value="0.00" selected>128GB +$0.00</option> <!-- $129-->
-                  <option value="0.00">256GB +$199.99</option>
-                  <option value="0.00">512GB +$299.99</option>
-                  <option value="0.00">1TB +$389.99</option>
-                  <option value="0.00">2TB +$799.99</option>
+                  <option value="0.00" selected>1TB SSD +$0.00</option> <!-- $129-->
 
                 </select>
               </td>
               <td class="specstd">
                 <h5>CPU:</h5>
                 <select name="CPU" id="CPU4" onchange="AddValue('CPU4');" required>
-                  <optgroup label="1.6GHz">
-                    <option value="0.00" selected>intel core i5 +$0.00</option>
-                    <option value="0.00">intel core i7 +$150</option>
-                  </optgroup>
-                  <optgroup label="2.2HGz">
-                    <option value="0.00">intel core i5 +$0.00</option>
-                    <option value="0.00">intel core i7 +$150</option>
+                  <optgroup label="3.2GHz (Boosts up to 4.2GHz)">
+                    <option value="0.00" selected>intel Xeon W processor </option>
                   </optgroup>
                 </select>
               </td>
@@ -521,8 +510,8 @@
     function show(el){
       document.getElementById(el).style.display = "inline";
       hideAllExcept(el);
+      reset2Default(el);
       SumAllValues(getNum(el));
-      if(TotalCost === 0.00){
       var BasePrices = {
         specs: 1036.12,
         specspro : 1099.00,
@@ -548,13 +537,29 @@
         }
       };
       setPrice(BasePrices.WhichCPU(el));
+
     }
+
+    function resetSelectBoxById(eid) {
+        document.getElementById(eid).options[0].selected = 'selected';
     }
+
+
 
     function hide(el) {
       document.getElementById(el).style.display = "none";
       resetValue();
+
     }
+
+    function reset2Default(el){
+      var CompNum = getNum(el);
+      var allIds = ['CPU'.concat(CompNum), 'Storage'.concat(CompNum), 'RAM'.concat(CompNum), 'Display'.concat(CompNum)];
+      for(id of allIds){
+        resetSelectBoxById(id);
+      }
+    }
+
   </script>
 </body>
 
