@@ -26,12 +26,25 @@
     #specs,
     #specspro,
     #specsiMac,
-    #specsiMacPro {
+    #specsiMacPro,
+    .Checkout {
       display: none;
     }
 
     h5 {
       margin-bottom: 5%;
+    }
+
+    .tdFormat {
+      padding-right: 40px;
+      padding-left: 40px;
+      background-color: #fff7f7;
+      border-radius: 0px;
+      border-color: #fff7f7;
+      border: 0;
+    }
+    .linkBox{
+      padding: 100px;
     }
   </style>
 </head>
@@ -59,7 +72,7 @@
             <tr>
               <td class="specstd">
                 <h5>RAM:</h5>
-                <select name="RAM" id="RAM1" onchange="AddValue('RAM1');" required>
+                <select name="RAM" id="RAM1" onchange="AddValue('RAM1'); UpdatePaymentInfo(); " required>
                   <optgroup label="1.6 GHz">
                     <option value="349.99" selected>4Gbs of Ram +$349.99</option>
                     <option value="449.99">8Gbs of Ram +$599.99</option>
@@ -72,14 +85,14 @@
               </td>
               <td class="specstd">
                 <h5>Display:</h5>
-                <select name="Display" id="Display1" onchange="AddValue('Display1');" required>
+                <select name="Display" id="Display1" onchange="AddValue('Display1');  UpdatePaymentInfo();" required>
                   <option value="299.99" selected>11.6" +$299.99</option>
                   <option value="399.99">13.3" +$399.99</option>
                 </select>
               </td>
               <td class="specstd">
                 <h5>Storage:</h5>
-                <select name="Storage" id="Storage1" onchange="AddValue('Storage1');" required>
+                <select name="Storage" id="Storage1" onchange="AddValue('Storage1'); UpdatePaymentInfo(); " required>
                   <option value="129.99" selected>128GB +$129.99</option>
                   <option value="199.99">256GB +$199.99</option>
                   <option value="299.99">512GB +$299.99</option>
@@ -90,7 +103,7 @@
               </td>
               <td class="specstd">
                 <h5>CPU:</h5>
-                <select name="CPU" id="CPU1" onchange="AddValue('CPU1');" required>
+                <select name="CPU" id="CPU1" onchange="AddValue('CPU1'); UpdatePaymentInfo(); " required>
                   <optgroup label="1.6 GHz">
                     <option value="107.14" selected>intel core i5 +$107.14</option>
                   </optgroup>
@@ -111,21 +124,21 @@
             <tr>
               <td class="specstd">
                 <h5>RAM:</h5>
-                <select name="RAM" id="RAM2" onchange="AddValue('RAM2');" required>
+                <select name="RAM" id="RAM2" onchange="AddValue('RAM2'); UpdatePaymentInfo(); " required>
                   <option value="0.00" selected>8Gbs of Ram +$0.00</option>
                   <option value="299.99">16Gbs of Ram +$299.99</option>
                 </select>
               </td>
               <td class="specstd">
                 <h5>Display:</h5>
-                <select name="Display" id="Display2" onchange="AddValue('Display2');" required>
+                <select name="Display" id="Display2" onchange="AddValue('Display2'); UpdatePaymentInfo();" required>
                   <option value="0.00" selected>13" +$0.00</option>
                   <option value="299.99">15" +$299.99</option>
                 </select>
               </td>
               <td class="specstd">
                 <h5>Storage:</h5>
-                <select name="Storage" id="Storage2" onchange="AddValue('Storage2');" required>
+                <select name="Storage" id="Storage2" onchange="AddValue('Storage2'); UpdatePaymentInfo();" required>
                   <option value="0.00" selected>128GB +$0.00</option>
                   <option value="199.99">256GB +$199.99</option>
                   <option value="399.99">512GB +$399.99</option>
@@ -136,7 +149,7 @@
               </td>
               <td class="specstd">
                 <h5>CPU:</h5>
-                <select name="CPU" id="CPU2" onchange="AddValue('CPU2');" required>
+                <select name="CPU" id="CPU2" onchange="AddValue('CPU2');  UpdatePaymentInfo();" required>
                   <optgroup label="1.4GHz">
                     <option value="0.00" selected>intel core i5 +$0.00</option>
                   </optgroup>
@@ -160,20 +173,20 @@
             <tr>
               <td class="specstd">
                 <h5>RAM:</h5>
-                <select name="RAM" id="RAM3" onchange="AddValue('RAM3');" required>
+                <select name="RAM" id="RAM3" onchange="AddValue('RAM3'); UpdatePaymentInfo();" required>
                   <option value="0.00" selected>8Gbs of Ram +$0.00</option>
                 </select>
               </td>
               <td class="specstd">
                 <h5>Display:</h5>
-                <select name="Display" id="Display3" onchange="AddValue('Display3');" required>
+                <select name="Display" id="Display3" onchange="AddValue('Display3'); UpdatePaymentInfo();" required>
                   <option value="0.00" selected>21.5" +$0.00</option>
                   <option value="149.99">27" +$149.99</option>
                 </select>
               </td>
               <td class="specstd">
                 <h5>Storage:</h5>
-                <select name="Storage" id="Storage3" onchange="AddValue('Storage3');" required>
+                <select name="Storage" id="Storage3" onchange="AddValue('Storage3'); UpdatePaymentInfo();" required>
                   <optgroup label="Hard Drive">
                     <option value="0.00" selected>1TB +$0.00</option> <!-- $129-->
                   </optgroup>
@@ -187,7 +200,7 @@
               </td>
               <td class="specstd">
                 <h5>CPU:</h5>
-                <select name="CPU" id="CPU3" onchange="AddValue('CPU3');" required>
+                <select name="CPU" id="CPU3" onchange="AddValue('CPU3'); UpdatePaymentInfo();" required>
                   <optgroup label="2.3GHz (Boosts up to 3.6GHz)">
                     <option value="0.00" selected>intel core i5 +$0.00</option>
                   </optgroup>
@@ -218,27 +231,27 @@
             <tr>
               <td class="specstd">
                 <h5>RAM:</h5>
-                <select name="RAM" id="RAM4" onchange="AddValue('RAM4');" required>
+                <select name="RAM" id="RAM4" onchange="AddValue('RAM4'); UpdatePaymentInfo();" required>
                   <option value="0.00" selected>Radeon Pro Vega 56 with 8GB HBM2 memory +$0.00</option>
                   <!--$499.99 -->
                 </select>
               </td>
               <td class="specstd">
                 <h5>Display:</h5>
-                <select name="Display" id="Display4" onchange="AddValue('Display4');" required>
+                <select name="Display" id="Display4" onchange="AddValue('Display4'); UpdatePaymentInfo();" required>
                   <option value="0.00" selected>27" Retina 5K (5120 x 2880) +$0.00</option>
                 </select>
               </td>
               <td class="specstd">
                 <h5>Storage:</h5>
-                <select name="Storage" id="Storage4" onchange="AddValue('Storage4');" required>
+                <select name="Storage" id="Storage4" onchange="AddValue('Storage4'); UpdatePaymentInfo();" required>
                   <option value="0.00" selected>1TB SSD +$0.00</option> <!-- $129-->
 
                 </select>
               </td>
               <td class="specstd">
                 <h5>CPU:</h5>
-                <select name="CPU" id="CPU4" onchange="AddValue('CPU4');" required>
+                <select name="CPU" id="CPU4" onchange="AddValue('CPU4'); UpdatePaymentInfo();" required>
                   <optgroup label="3.2GHz (Boosts up to 4.2GHz)">
                     <option value="0.00" selected>intel Xeon W processor </option>
                   </optgroup>
@@ -253,34 +266,84 @@
 
 
 
-    <table style="width:10%;">
-      <tr>
-        <td style="background-color: #fff7f7; padding: 0px; text-align: right;">
-          <a onclick="SaveOnlocalStorage();" href="Checkout.htm" >
-            <h3 class="coolFont" id="TotalAmmount">$0.00</h3>
-          </a>
-        </td>
-        <td style="background-color: #fff7f7; padding: 0px; width: 50%; " align="left">
-          <a onclick="SaveOnlocalStorage();" href="Checkout.htm"  >
-            <img style="width:100%; float:right; border-radius: 50%;" src="https://media.gettyimages.com/vectors/shopping-cart-icon-silhouette-2-vector-id898295684?s=2048x2048" alt="">
-          </a>
-        </td>
-      </tr>
+    <table style="width:20%;" cellspacing="0" cellpadding="0" style="border:none;">
+      <tr id="Checkout">
 
+        <td style="background-color: #fff7f7">
+          <table class="specstd" cellspacing="0" cellpadding="0" border="1" style="background-color: #fff7f7; border:none; border-style:hidden; border-color: #fff7f7; ">
+            <thead>
+              <caption>
+                <h4 class="coolFont"> <u> Checkout </u> </h4>
+              </caption>
+              <th style="background-color: #fff7f7 border:1; border-style = solid; border-color: black;" class="tdFormat">Component</th>
+              <th id="CostHeader" style="background-color: #fff7f7 border:1; border-style = solid; border-color: black;" class="tdFormat">Cost</th>
+            </thead>
+            <tr>
+              <td class="tdFormat" id="CPUComp">CPU Comp</td>
+              <td id="CPUPrecio" class="tdFormat">CPU Cost</td>
+            </tr>
+
+            <tr>
+              <td class="tdFormat" id="RAMComp">RAM Comp</td>
+              <td id="RAMPrecio" class="tdFormat">RAM Cost</td>
+            </tr>
+            <tr>
+              <td class="tdFormat" id="DisplayComp">Display Comp</td>
+              <td id="DisplayPrecio" class="tdFormat">Display Cost</td>
+            </tr>
+            <tr>
+              <td id="StorageComp" class="tdFormat">Storage Comp</td>
+              <td id="StoragePrecio" class="tdFormat">Storage Cost</td>
+            </tr>
+          </table>
+        </td>
+
+        <td style="background-color: #fff7f7">
+          <hr width="1" size="500">
+        </td>
+
+      </tr>
     </table>
 
+
+
+
+
+
+
+
+
+
+    <table style="width:20%;" cellspacing="2" cellpadding="1" style="border:none;">
+      <tr>
+        <td style="background-color: #fff7f7; padding: 0px; text-align: right;">
+          <h3 class="coolFont" id="TotalAmmount">$0.00</h3>
+        </td>
+        <td style="background-color: #fff7f7; padding: 0px; width: 50%;" align="left">
+          <img id="CartPic" style="float:left; border-radius: 50%; max-width:30%;" src="https://media.gettyimages.com/vectors/shopping-cart-icon-silhouette-2-vector-id898295684?s=2048x2048" alt="">
+        </td>
+      </tr>
+    </table>
+
+
+
+
+
+
   </form>
-  <div class="c">
-    <table style="
-  border-spacing:10px;">
+  <div class="c" style="height:400px;">
+    <table style="border-spacing:10px; height:200px; ">
       <tr>
         <td class="coolFont" style="
-      border-collapse: collapse;"> <a style="align: center; padding-top:40px; padding-bottom: 40px;" href="index.html">Back to Home Page</a> </td>
+        border-collapse: collapse;"> <a class="linkBox cuatroElements" href="Index.html">Home Page</a> </td>
         <td class="coolFont" style="
-      border-collapse: collapse;"> <a style="padding-top:40px; padding-bottom: 40px;" href="ContactMe.html">Contact Me</a> </td>
+        border-collapse: collapse;"> <a class="linkBox cuatroElements" href="AboutMe.html">About Me</a> </td>
         <td class="coolFont" style="
-      border-collapse: collapse;"> <a style="padding-top:40px; padding-bottom: 40px;" href="DarkAboutMe.html">Dark Mode</a> </td>
+        border-collapse: collapse;"> <a class="linkBox cuatroElements" href="ContactMe.html">Contact Me</a> </td>
+        <td class="coolFont" style="
+        border-collapse: collapse;"> <a class="linkBox cuatroElements" href="DarkIndex.html">Dark Mode</a> </td>
       </tr>
+
     </table>
   </div>
   <script type="text/javascript">
@@ -416,32 +479,51 @@
     }
     //Ends here
 
-    function SaveOnlocalStorage(){
-
-      if(!AllareHidden()){
-        var IDofCurrentlyViss = GetIDfromCPUName(CurrentlyVissible);
-        var CompNum = getNum(IDofCurrentlyViss);
-        var CPUNum = 'CPU'.concat(CompNum);
-        var SelectedCPU = document.getElementById(CPUNum).options[document.getElementById(CPUNum).selectedIndex].text;
-        var RAMNum = 'RAM'.concat(CompNum);
-        var SelectedRAM = document.getElementById(RAMNum).options[document.getElementById(RAMNum).selectedIndex].text;
-        var StorageNum = 'Storage'.concat(CompNum);
-        var SelectedStorage = document.getElementById(StorageNum).options[document.getElementById(StorageNum).selectedIndex].text;
-        var DisplayNum = 'Display'.concat(CompNum);
-        var SelectedDisplay = document.getElementById(DisplayNum).options[document.getElementById(DisplayNum).selectedIndex].text;
-
-        var everythingyouNeedToknow = {
-          'WhichComputer': CurrentlyVissible,
-          'CentralPU': [SelectedCPU, document.getElementById(CPUNum).value],
-          'StorageSpace': [SelectedStorage, document.getElementById(StorageNum).value],
-          'RandomAM': [SelectedRAM, document.getElementById(RAMNum).value],
-          'DisplaySize': [SelectedDisplay, document.getElementById(DisplayNum)],
-          'CostoTotal': TotalCost
-        };
-      localStorage.setItem("everythingIsHere",everythingyouNeedToknow);
-    }else{
-      localStorage.setItem("everythingIsHere", "None");
-    }
+    function UpdatePaymentInfo() {
+      var IDofCurrentlyViss = GetIDfromCPUName(CurrentlyVissible);
+      var CompNum = getNum(IDofCurrentlyViss);
+      var CPUNum = 'CPU'.concat(CompNum);
+      var SelectedCPU = String(document.getElementById(CPUNum).options[document.getElementById(CPUNum).selectedIndex].text);
+      var RAMNum = 'RAM'.concat(CompNum);
+      var SelectedRAM = String(document.getElementById(RAMNum).options[document.getElementById(RAMNum).selectedIndex].text);
+      var StorageNum = 'Storage'.concat(CompNum);
+      var SelectedStorage = String(document.getElementById(StorageNum).options[document.getElementById(StorageNum).selectedIndex].text);
+      var DisplayNum = 'Display'.concat(CompNum);
+      var SelectedDisplay = String(document.getElementById(DisplayNum).options[document.getElementById(DisplayNum).selectedIndex].text);
+      var CPUPrice = parseFloat(document.getElementById(CPUNum).value);
+      var RAMPrice = parseFloat(document.getElementById(RAMNum).value);
+      var DisplayPrice = parseFloat(document.getElementById(DisplayNum).value);
+      var StoragePrice = parseFloat(document.getElementById(StorageNum).value);
+      document.getElementById('CPUComp').innerHTML = SelectedCPU;
+      document.getElementById('RAMComp').innerHTML = SelectedRAM;
+      document.getElementById('StorageComp').innerHTML = SelectedStorage;
+      document.getElementById('DisplayComp').innerHTML = SelectedDisplay;
+      // var ArrayofPrices = [CPUPrice, RAMPrice, StoragePrice, DisplayPrice];
+      // var ArrayofPriceIDs = ['CPUPrecio', 'RAMPrecio','StoragePrecio', 'DisplayPrecio'];
+      var ObjectofPrices = {
+        'CPUPrecio': CPUPrice,
+        'RAMPrecio': RAMPrice,
+        'StoragePrecio': StoragePrice,
+        'DisplayPrecio': DisplayPrice
+      };
+      var Empty = true;
+      for (var prices in ObjectofPrices) {
+        if (ObjectofPrices[prices] !== 0.00) {
+          Empty = false;
+          break;
+        }
+      }
+      if (Empty) {
+        document.getElementById('CostHeader').style.display = 'none';
+      }
+      for (var price in ObjectofPrices) {
+        if (ObjectofPrices[price] !== 0.00) {
+          document.getElementById('CostHeader').style.display = 'inline';
+          document.getElementById(price).innerHTML = "$" + String(ObjectofPrices[price]);
+        } else {
+          document.getElementById(price).innerHTML = " ";
+        }
+      }
 
     }
 
@@ -462,6 +544,7 @@
           break;
       };
     }
+
     function getNum(id) {
 
       switch (id) {
@@ -499,6 +582,7 @@
       }
       TotalCost += value;
       updateCart();
+
     }
 
     function getArrayofvaluesFor(el) {
@@ -612,29 +696,31 @@
           return VartoReturn;
         }
       };
-      CurrentlyVissible = ComputeNames.WhichCPU(el);
+      CurrentlyVissible = ComputerNames.WhichCPU(el);
+      document.getElementById('Checkout').style.display = "inline";
+      UpdatePaymentInfo();
     }
 
     function resetSelectBoxById(eid) {
       document.getElementById(eid).options[0].selected = 'selected';
     }
 
-    function AllareHidden(){
-        // var ids = ['specs', 'specspro', 'specsiMac', 'specsiMacPro'];
-        // var AllHidden = true;
-        // for(var id of ids){
-        //   if(document.getElementById(el).style.display !== 'none'){
-        //     AllHidden = false;
-        //     break;
-        //   }
-        // }
-        // return AllHidden;
-        return CurrentlyVissible == 'Macbook Air' || CurrentlyVissible == 'Macbook Pro' || CurrentlyVissible = 'iMac Pro' || CurrentlyVissible = 'iMac';
+    function AllareHidden() {
+      var ids = ['specs', 'specspro', 'specsiMac', 'specsiMacPro'];
+      var AllHidden = true;
+      for (var id of ids) {
+        if (document.getElementById(el).style.display !== 'none') {
+          AllHidden = false;
+          break;
+        }
+      }
+      return AllHidden;
     }
 
 
     function hide(el) {
       document.getElementById(el).style.display = "none";
+      document.getElementById('Checkout').style.display = "none";
       resetValue();
     }
 
