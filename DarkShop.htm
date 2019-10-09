@@ -865,6 +865,31 @@
       CurrentlyVissible = ComputerNames.WhichCPU(el);
       document.getElementById('Checkout').style.display = "inline";
       UpdatePaymentInfo();
+      var PicObject = {
+        'specs':'MacbookAirPic',
+        'specspro':'MacbookProPic',
+        'specsiMac':'iMacPic',
+        'specsiMacPro':'iMacProPic',
+        WhichImage: function(ele){
+          var ReturnVal;
+          switch (ele) {
+            case 'specs':
+              ReturnVal = this.specs;
+              break;
+            case 'specspro':
+              ReturnVal = this.specspro;
+              break;
+            case 'specsiMac':
+              ReturnVal = this.specsiMac;
+              break;
+            case 'specsiMacPro':
+              ReturnVal = this.specsiMacPro;
+              break;
+          };
+          return String(ReturnVal);
+        }
+      };
+      document.getElementById(PicObject.WhichImage(el)).style.width = '100%';
     }
 
     function resetSelectBoxById(eid) {
@@ -887,6 +912,31 @@
     function hide(el) {
       document.getElementById(el).style.display = "none";
       document.getElementById('Checkout').style.display = "none";
+      var PicObject = {
+        'specs':'MacbookAirPic',
+        'specspro':'MacbookProPic',
+        'specsiMac':'iMacPic',
+        'specsiMacPro':'iMacProPic',
+        WhichImage: function(ele){
+          var ReturnVal;
+          switch (ele) {
+            case 'specs':
+              ReturnVal = this.specs;
+              break;
+            case 'specspro':
+              ReturnVal = this.specspro;
+              break;
+            case 'specsiMac':
+              ReturnVal = this.specsiMac;
+              break;
+            case 'specsiMacPro':
+              ReturnVal = this.specsiMacPro;
+              break;
+          };
+          return String(ReturnVal);
+        }
+      };
+      document.getElementById(PicObject.WhichImage(el)).style.width = '50%';
       resetValue();
     }
 
