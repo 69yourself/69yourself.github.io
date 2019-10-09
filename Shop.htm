@@ -23,6 +23,8 @@
       width: 200px;
       padding-top: 0;
       padding-bottom: 0;
+      height: 50px;
+      text-align: left;
     }
 
     .specstr {
@@ -97,68 +99,74 @@
 
                   <tr class="specstr">
                     <td class="specstd">
-                      <h5>RAM: <select name="RAM" id="RAM1" onchange="AddValue('RAM1'); UpdatePaymentInfo(); " required>
-                          <optgroup label="1.6 GHz">
-                            <option value="349.99" selected>4Gbs +$349.99</option>
-                            <option value="449.99">8Gbs +$599.99</option>
-                          </optgroup>
-                          <optgroup label="2.2 GHz">
-                            <option value="499.99" selected>4Gbs +$499.99</option>
-                            <option value="599.99">8Gbs +$599.99</option>
-                          </optgroup>
-                        </select>
-                      </h5>
-
-                    </td>
-
-
-
-
-                  <tr class="specstr">
-                    <td class="specstd">
-                      <h5>Display: <select name="Display" id="Display1" onchange="AddValue('Display1');  UpdatePaymentInfo();" required>
-                          <option value="299.99" selected>11.6" +$299.99</option>
-                          <option value="399.99">13.3" +$399.99</option>
-                        </select></h5>
+                      <label>
+                        <span style="white-space: nowrap;">
+                          <h5>RAM:<select name="RAM" id="RAM1" onchange="AddValue('RAM1'); UpdatePaymentInfo(); " required>
+                              <optgroup label="1.6 GHz">
+                                <option value="349.99" selected>4Gbs +$349.99</option>
+                                <option value="449.99">8Gbs +$599.99</option>
+                              </optgroup>
+                              <optgroup label="2.2 GHz">
+                                <option value="499.99" selected>4Gbs +$499.99</option>
+                                <option value="599.99">8Gbs +$599.99</option>
+                              </optgroup>
+                            </select>
+                          </h5>
+                        </span>
 
                     </td>
                   </tr>
 
                   <tr class="specstr">
                     <td class="specstd">
-                      <h5>Storage: <select name="Storage" id="Storage1" onchange="AddValue('Storage1'); UpdatePaymentInfo(); " required>
-                          <option value="129.99" selected>128GB +$129.99</option>
-                          <option value="199.99">256GB +$199.99</option>
-                          <option value="299.99">512GB +$299.99</option>
-                          <option value="389.99">1TB +$389.99</option>
-                          <option value="799.99">2TB +$799.99</option>
-
-                        </select></h5>
-
+                      <span style="white-space: nowrap;">
+                        <h5>Display:<select name="Display" id="Display1" onchange="AddValue('Display1');  UpdatePaymentInfo();" required>
+                            <option value="299.99" selected>11.6" +$299.99</option>
+                            <option value="399.99">13.3" +$399.99</option>
+                          </select>
+                        </h5>
+                      </span>
                     </td>
-
                   </tr>
-
 
                   <tr class="specstr">
                     <td class="specstd">
-                      <h5>CPU:<select name="CPU" id="CPU1" onchange="AddValue('CPU1'); UpdatePaymentInfo(); " required>
-                          <optgroup label="1.6 GHz">
-                            <option value="107.14" selected>intel core i5 +$107.14</option>
-                          </optgroup>
-                          <optgroup label="2.2 HGz">
-                            <option value="297.00">intel core i7 +$297.00</option>
-                          </optgroup>
-                        </select></h5>
+                      <span style="white-space: nowrap;">
+                        <h5>Storage: <select name="Storage" id="Storage1" onchange="AddValue('Storage1'); UpdatePaymentInfo(); " required>
+                            <option value="129.99" selected>128GB +$129.99</option>
+                            <option value="199.99">256GB +$199.99</option>
+                            <option value="299.99">512GB +$299.99</option>
+                            <option value="389.99">1TB +$389.99</option>
+                            <option value="799.99">2TB +$799.99</option>
 
+                          </select>
+                        </h5>
+                      </span>
                     </td>
                   </tr>
-            </tr>
+                  <tr class="specstr">
+                    <td class="specstd">
+                      <span style="white-space: nowrap;">
+                        <h5>CPU:<select name="CPU" id="CPU1" onchange="AddValue('CPU1'); UpdatePaymentInfo(); " required>
+                            <optgroup label="1.6 GHz">
+                              <option value="107.14" selected>intel core i5 +$107.14</option>
+                            </optgroup>
+                            <optgroup label="2.2 HGz">
+                              <option value="297.00">intel core i7 +$297.00</option>
+                            </optgroup>
+                          </select>
+                        </h5>
+                      </span>
+                    </td>
+                  </tr>
           </table>
+
+            <h5 class="coolFont"> <a href="#Checkout"> Go To Checkout! </a> </h5>
+
         </td>
 
         <td class="Tablemodels">
-          <img class="MacPics" onclick="show('specs');" ondblclick="hide('specs');" style="width: 60%;" src="https://images.idgesg.net/images/article/2018/11/macbook-air-2108-hero2-100779122-large.jpg" alt="Macbook Pro">
+          <img class="MacPics" id="MacbookAirPic" onclick="show('specs');" ondblclick="hide('specs');" style="width: 60%;" src="https://images.idgesg.net/images/article/2018/11/macbook-air-2108-hero2-100779122-large.jpg" alt="Macbook Pro">
           <h4 class="coolFont">Macbook air</h4>
         </td>
 
@@ -180,172 +188,255 @@
       <!-- TD for Macbook Pro-->
 
       <table>
-        <!-- Table for specs and macbook-->
+        <!-- Table for specs and macbook Pro-->
         <tr>
+
+
+          <td style="background-color: #fff7f7;">
+            <!--TD for macbook pro picture -->
+            <img class="MacPics" id="MacbookProPic" onclick="show('specspro');" ondblclick="hide('specspro');" style="height: 300%;" src="https://i2.wp.com/9to5toys.com/wp-content/uploads/sites/5/2019/05/2019-macbook-pro.jpg?resize=1500%2C0&quality=82&strip=all&ssl=1"
+              alt="iMacPro">
+            <h4 class="coolFont">Macbook Pro</h4>
+          </td>
           <td id="specspro">
             <!--TableData for specs-->
 
-            <table class="specstd" style="width:20%;">
+            <table class="specstd">
               <!--Table for specs only -->
-
               <caption class="coolFont">Specifications</caption>
               <tr>
                 <td class="specstd">
-                  <h5>RAM:<select name="RAM" id="RAM2" onchange="AddValue('RAM2'); UpdatePaymentInfo(); " required>
-                    <option value="0.00" selected>8Gbs of Ram +$0.00</option>
-                    <option value="299.99">16Gbs of Ram +$299.99</option>
-                  </select></h5>
-
+                  <span style="white-space: nowrap;">
+                    <h5>RAM: <select name="RAM" id="RAM2" onchange="AddValue('RAM2'); UpdatePaymentInfo(); " required>
+                        <option value="0.00" selected>8Gbs +$0.00</option>
+                        <option value="299.99">16Gbs +$299.99</option>
+                      </select>
+                    </h5>
+                  </span>
                 </td>
               </tr>
               <tr>
 
                 <td class="specstd">
-                  <h5>Display:<select name="Display" id="Display2" onchange="AddValue('Display2'); UpdatePaymentInfo();" required>
-                    <option value="0.00" selected>13" +$0.00</option>
-                    <option value="299.99">15" +$299.99</option>
-                  </select></h5>
-
+                  <span style="white-space: nowrap;">
+                    <h5>Display:<select name="Display" id="Display2" onchange="AddValue('Display2'); UpdatePaymentInfo();" required>
+                        <option value="0.00" selected>13" +$0.00</option>
+                        <option value="299.99">15" +$299.99</option>
+                      </select>
+                    </h5>
                 </td>
               </tr>
               <tr>
                 <td class="specstd">
-                  <h5>Storage:<select name="Storage" id="Storage2" onchange="AddValue('Storage2'); UpdatePaymentInfo();" required>
-                      <option value="0.00" selected>128GB +$0.00</option>
-                      <option value="199.99">256GB +$199.99</option>
-                      <option value="399.99">512GB +$399.99</option>
-                    </select></h5>
-
+                  <span style="white-space: nowrap;">
+                    <h5>Storage:<select name="Storage" id="Storage2" onchange="AddValue('Storage2'); UpdatePaymentInfo();" required>
+                        <option value="0.00" selected>128GB +$0.00</option>
+                        <option value="199.99">256GB +$199.99</option>
+                        <option value="399.99">512GB +$399.99</option>
+                      </select></h5>
+                  </span>
                 </td>
               </tr>
               <tr>
                 <td class="specstd">
-                  <h5>CPU:<select name="CPU" id="CPU2" onchange="AddValue('CPU2');  UpdatePaymentInfo();" required>
-                    <optgroup label="1.4GHz">
-                      <option value="0.00" selected>intel core i5 +$0.00</option>
-                    </optgroup>
-                    <optgroup label="2.4HGz Quad Core Processor">
-                      <option value="299.99">intel core i5 +$299.99</option>
-                    </optgroup>
-                  </select></h5>
+                  <span style="white-space: nowrap;">
+                    <h5>CPU:<select name="CPU" id="CPU2" onchange="AddValue('CPU2');  UpdatePaymentInfo();" required>
+                        <optgroup label="1.4GHz">
+                          <option value="0.00" selected>intel core i5 +$0.00</option>
+                        </optgroup>
+                        <optgroup label="2.4HGz Quad Core Processor">
+                          <option value="299.99">intel core i5 +$299.99</option>
+                        </optgroup>
+                      </select></h5>
+                  </span>
 
                 </td>
               </tr>
 
             </table>
+            <h5 class="coolFont"> <a href="#Checkout"> Go To Checkout! </a> </h5>
 
-          </td>
-
-          <td style="background-color: #fff7f7;">
-            <!--TD for macbook pro picture -->
-            <img class="MacPics" onclick="show('specspro');" ondblclick="hide('specspro');" style="height: 300%;" src="https://i2.wp.com/9to5toys.com/wp-content/uploads/sites/5/2019/05/2019-macbook-pro.jpg?resize=1500%2C0&quality=82&strip=all&ssl=1"
-              alt="">
-            <h4 class="coolFont">Macbook Pro</h4>
           </td>
         </tr>
       </table>
-      </tr>
     </td>
     </tr>
 
+
+
+
+
+
     <tr>
-      <td class="Tablemodels">
-        <img class="MacPics" onclick="show('specsiMac');" ondblclick="hide('specsiMac');"
-          src="data:image/jpeg;base64,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"
-          alt="">
-        <h4 class="coolFont">iMac</h4>
-        <table id="specsiMac" style="width:20%;">
-          <caption class="coolFont">Specifications</caption>
+      <!-- table row for 2nd row-->
+
+      <td class="specstd">
+        <!--TD for specs and iMac-->
+        <table style="background-color:#fff7f7;">
+          <!--table for specs and iMac-->
+
           <tr>
-            <td class="specstd">
-              <h5>RAM:</h5>
-              <select name="RAM" id="RAM3" onchange="AddValue('RAM3'); UpdatePaymentInfo();" required>
-                <option value="0.00" selected>8Gbs of Ram +$0.00</option>
-              </select>
-            </td>
-            <td class="specstd">
-              <h5>Display:</h5>
-              <select name="Display" id="Display3" onchange="AddValue('Display3'); UpdatePaymentInfo();" required>
-                <option value="0.00" selected>21.5" +$0.00</option>
-                <option value="149.99">27" +$149.99</option>
-              </select>
-            </td>
-            <td class="specstd">
-              <h5>Storage:</h5>
-              <select name="Storage" id="Storage3" onchange="AddValue('Storage3'); UpdatePaymentInfo();" required>
-                <optgroup label="Hard Drive">
-                  <option value="0.00" selected>1TB +$0.00</option> <!-- $129-->
-                </optgroup>
-                <optgroup label="Fusion Drive">
-                  <option value="149.99">1TB +$149.99</option>
-                  <option value="199.99">2TB +$199.99</option>
-                </optgroup>
 
+            <td id="specsiMac">
+              <!--TD for specs-->
 
-              </select>
-            </td>
-            <td class="specstd">
-              <h5>CPU:</h5>
-              <select name="CPU" id="CPU3" onchange="AddValue('CPU3'); UpdatePaymentInfo();" required>
-                <optgroup label="2.3GHz (Boosts up to 3.6GHz)">
-                  <option value="0.00" selected>intel core i5 +$0.00</option>
-                </optgroup>
-                <optgroup label="3.0GHz (Boosts up to 4.1GHz)">
-                  <option value="139.66">intel core i3 +$139.66</option>
-                  <option value="241.88">intel core i5 +$241.88</option>
-                </optgroup>
+              <table style="width:20%;">
+                <caption class="coolFont">Specifications</caption>
+                <tr>
+                  <td class="specstd">
+                    <span style="white-space: nowrap;">
+                      <h5>RAM:<select name="RAM" id="RAM3" onchange="AddValue('RAM3'); UpdatePaymentInfo();" required>
+                          <option value="0.00" selected>8Gbs +$0.00</option>
+                        </select></h5>
+                    </span>
 
-                <optgroup label="3.1GHz (Boosts up to 4.3GHz)">
-                  <option value="260.27">intel core i5 +$260.27</option>
-                </optgroup>
-                <optgroup label="3.7GHz (Boosts up to 4.6GHz)">
-                  <option value="269.99">intel core i5 +$269.99</option>
-                </optgroup>
-              </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="specstd">
+                    <span style="white-space: nowrap;">
+                      <h5>Display:<select name="Display" id="Display3" onchange="AddValue('Display3'); UpdatePaymentInfo();" required>
+                          <option value="0.00" selected>21.5" +$0.00</option>
+                          <option value="149.99">27" +$149.99</option>
+                        </select></h5>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="specstd">
+                    <span style="white-space: nowrap;">
+                      <h5>Storage: <select name="Storage" id="Storage3" onchange="AddValue('Storage3'); UpdatePaymentInfo();" required>
+                          <optgroup label="Hard Drive">
+                            <option value="0.00" selected>1TB +$0.00</option> <!-- $129-->
+                          </optgroup>
+                          <optgroup label="Fusion Drive">
+                            <option value="149.99">1TB +$149.99</option>
+                            <option value="199.99">2TB +$199.99</option>
+                          </optgroup>
+                        </select>
+
+                      </h5>
+                    </span>
+
+                  </td>
+                </tr>
+                <tr>
+                  <td class="specstd">
+                    <span style="white-space: nowrap;">
+                      <h5>CPU: <select name="CPU" id="CPU3" onchange="AddValue('CPU3'); UpdatePaymentInfo();" required>
+                          <optgroup label="2.3GHz (Boosts up to 3.6GHz)">
+                            <option value="0.00" selected>intel core i5 +$0.00</option>
+                          </optgroup>
+                          <optgroup label="3.0GHz (Boosts up to 4.1GHz)">
+                            <option value="139.66">intel core i3 +$139.66</option>
+                            <option value="241.88">intel core i5 +$241.88</option>
+                          </optgroup>
+
+                          <optgroup label="3.1GHz (Boosts up to 4.3GHz)">
+                            <option value="260.27">intel core i5 +$260.27</option>
+                          </optgroup>
+                          <optgroup label="3.7GHz (Boosts up to 4.6GHz)">
+                            <option value="269.99">intel core i5 +$269.99</option>
+                          </optgroup>
+                        </select>
+                    </span>
+                    </h5>
+
+                  </td>
+                </tr>
+              </table>
+              <h5 class="coolFont"> <a href="#Checkout"> Go To Checkout! </a> </h5>
             </td>
+
+            <td class="Tablemodels">
+              <!--TD for iMac-->
+              <img class="MacPics" id = "iMacPic" onclick="show('specsiMac');" ondblclick="hide('specsiMac');"
+                src="data:image/jpeg;base64,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"
+                alt="iMacPic">
+              <h4 class="coolFont">iMac</h4>
+
+            </td>
+
           </tr>
         </table>
       </td>
-      </td>
 
 
-      <td class="Tablemodels">
-        <img class="MacPics" onclick="show('specsiMacPro');" ondblclick="hide('specsiMacPro');" src="https://images-na.ssl-images-amazon.com/images/I/51rMn%2BNobHL._SL1024_.jpg" alt="">
-        <h4 class="coolFont">iMac Pro</h4>
-        <table id="specsiMacPro">
-          <caption class="coolFont">Specifications</caption>
+
+
+
+
+
+      <td class="specstd">
+        <!--iMac Pro tableData -->
+        <table>
+          <!-- Table for specs and iMac-->
           <tr>
-            <td class="specstd">
-              <h5>RAM:</h5>
-              <select name="RAM" id="RAM4" onchange="AddValue('RAM4'); UpdatePaymentInfo();" required>
-                <option value="0.00" selected>Radeon Pro Vega 56 with 8GB HBM2 memory +$0.00</option>
-                <!--$499.99 -->
-              </select>
+            <td class="Tablemodels">
+              <!--TableData for iMac Pro image -->
+              <img class="MacPics" id="iMacProPic" onclick="show('specsiMacPro');" ondblclick="hide('specsiMacPro');" src="https://images-na.ssl-images-amazon.com/images/I/51rMn%2BNobHL._SL1024_.jpg" alt="">
+              <h4 class="coolFont">iMac Pro</h4>
             </td>
-            <td class="specstd">
-              <h5>Display:</h5>
-              <select name="Display" id="Display4" onchange="AddValue('Display4'); UpdatePaymentInfo();" required>
-                <option value="0.00" selected>27" Retina 5K (5120 x 2880) +$0.00</option>
-              </select>
-            </td>
-            <td class="specstd">
-              <h5>Storage:</h5>
-              <select name="Storage" id="Storage4" onchange="AddValue('Storage4'); UpdatePaymentInfo();" required>
-                <option value="0.00" selected>1TB SSD +$0.00</option> <!-- $129-->
 
-              </select>
+            <td id="specsiMacPro">
+              <!--TableData for specs-->
+              <table>
+                <!--Table for specs-->
+                <caption class="coolFont">Specifications</caption>
+                <tr>
+                  <td class="specstd">
+                    <span style="white-space: nowrap;">
+                      <h5>RAM:
+                        <select name="RAM" id="RAM4" onchange="AddValue('RAM4'); UpdatePaymentInfo();" required>
+                          <option value="0.00" selected>Radeon Pro Vega 56 with 8GB HBM2 memory +$0.00</option>
+                        </select>
+                      </h5>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="specstd">
+                    <span style="white-space: nowrap;">
+                      <h5>Display:
+                        <select name="Display" id="Display4" onchange="AddValue('Display4'); UpdatePaymentInfo();" required>
+                          <option value="0.00" selected>27" Retina 5K (5120 x 2880) +$0.00</option>
+                        </select>
+                      </h5>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="specstd">
+                    <span style="white-space: nowrap;">
+                      <h5>Storage:
+                        <select name="Storage" id="Storage4" onchange="AddValue('Storage4'); UpdatePaymentInfo();" required>
+                          <option value="0.00" selected>1TB SSD +$0.00</option> <!-- $129-->
+                        </select>
+                      </h5>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="specstd">
+                    <span style="white-space: nowrap;">
+                      <h5>CPU: <select name="CPU" id="CPU4" onchange="AddValue('CPU4'); UpdatePaymentInfo();" required>
+                          <optgroup label="3.2GHz (Boosts up to 4.2GHz)">
+                            <option value="0.00" selected>intel Xeon W processor </option>
+                          </optgroup>
+                        </select>
+                      </h5>
+                    </span>
+                  </td>
+                </tr>
+              </table>
+              <h5 class="coolFont"> <a href="#Checkout"> Go To Checkout! </a> </h5>
             </td>
-            <td class="specstd">
-              <h5>CPU:</h5>
-              <select name="CPU" id="CPU4" onchange="AddValue('CPU4'); UpdatePaymentInfo();" required>
-                <optgroup label="3.2GHz (Boosts up to 4.2GHz)">
-                  <option value="0.00" selected>intel Xeon W processor </option>
-                </optgroup>
-              </select>
-            </td>
-          </tr>
+
         </table>
-      </td>
+    </tr>
+
+
+    </td>
     </tr>
     </table>
 
@@ -785,6 +876,32 @@
       CurrentlyVissible = ComputerNames.WhichCPU(el);
       document.getElementById('Checkout').style.display = "inline";
       UpdatePaymentInfo();
+      var PicObject = {
+        'specs':'MacbookAirPic',
+        'specspro':'MacbookProPic',
+        'specsiMac':'iMacPic',
+        'specsiMacPro':'iMacProPic',
+        WhichImage: function(ele){
+          var ReturnVal;
+          switch (ele) {
+            case 'specs':
+              ReturnVal = this.specs;
+              break;
+            case 'specspro':
+              ReturnVal = this.specspro;
+              break;
+            case 'specsiMac':
+              ReturnVal = this.specsiMac;
+              break;
+            case 'specsiMacPro':
+              ReturnVal = this.specsiMacPro;
+              break;
+          };
+          return String(ReturnVal);
+        }
+      };
+      document.getElementById(PicObject.WhichImage(el)).style.width = '100%';
+
     }
 
     function resetSelectBoxById(eid) {
@@ -807,6 +924,31 @@
     function hide(el) {
       document.getElementById(el).style.display = "none";
       document.getElementById('Checkout').style.display = "none";
+      var PicObject = {
+        'specs':'MacbookAirPic',
+        'specspro':'MacbookProPic',
+        'specsiMac':'iMacPic',
+        'specsiMacPro':'iMacProPic',
+        WhichImage: function(ele){
+          var ReturnVal;
+          switch (ele) {
+            case 'specs':
+              ReturnVal = this.specs;
+              break;
+            case 'specspro':
+              ReturnVal = this.specspro;
+              break;
+            case 'specsiMac':
+              ReturnVal = this.specsiMac;
+              break;
+            case 'specsiMacPro':
+              ReturnVal = this.specsiMacPro;
+              break;
+          };
+          return String(ReturnVal);
+        }
+      };
+      document.getElementById(PicObject.WhichImage(el)).style.width = '50%';
       resetValue();
     }
 
