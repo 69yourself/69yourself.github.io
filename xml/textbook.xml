@@ -15,7 +15,7 @@
             <www>http://www.cengage.com.pr</www>
         </publisher>
         <year>2008</year>
-        <cover type="hardcover">Hardcover</cover>
+        <cover>Hardcover</cover>
         <ISBN>ISBN-13: 978-0-495-10836-8</ISBN>
         <ISBN>ISBN-10: 0-495-10836-7</ISBN>
         <edition>7th edition</edition>
@@ -35,7 +35,7 @@
             <www>https://www.pearson.com</www>
         </publisher>
         <year>2011</year>
-        <cover type="SoftCover">Softcover</cover>
+        <cover>Softcover</cover>
         <ISBN>ISBN-10: 0132151006</ISBN>
         <ISBN>ISBN-13: 978-0132151009</ISBN>
         <edition>3th edition</edition>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+          <!-- XML Schema Generated from XML Document on Sat Oct 26 2019 13:25:51 GMT-0400 (AST) -->
+          <!-- with XmlGrid.net Free Online Service http://xmlgrid.net -->
+       <xs:element name="textbooks">
+              <xs:complexType>
+                     <xs:sequence>
+                            <xs:element name="textbook" maxOccurs="unbounded">
+                                   <xs:complexType>
+                                          <xs:sequence>
+                                                 <xs:element name="title" type="xs:string"></xs:element>
+                                                 <xs:element name="BookNumber" type="xs:int"></xs:element>
+                                                 <xs:element name="author">
+                                                        <xs:complexType>
+                                                               <xs:sequence>
+                                                                      <xs:element name="FullName" type="xs:string"></xs:element>
+                                                                  </xs:sequence>
+                                                           </xs:complexType>
+                                                    </xs:element>
+                                                 <xs:element name="publisher">
+                                                        <xs:complexType>
+                                                               <xs:sequence>
+                                                                      <xs:element name="publishercomp" type="xs:string"></xs:element>
+                                                                      <xs:element name="www" type="xs:string"></xs:element>
+                                                                  </xs:sequence>
+                                                           </xs:complexType>
+                                                    </xs:element>
+                                                 <xs:element name="year" type="xs:int"></xs:element>
+                                                 <xs:element name="cover" type="xs:string"></xs:element>
+                                                 <xs:element name="ISBN" maxOccurs="unbounded" type="xs:string"></xs:element>
+                                                 <xs:element name="edition" type="xs:string"></xs:element>
+                                                 <xs:element name="price" type="xs:string"></xs:element>
+                                             </xs:sequence>
+                                      </xs:complexType>
+                               </xs:element>
+                        </xs:sequence>
+                 </xs:complexType>
+          </xs:element>
+   </xs:schema>
