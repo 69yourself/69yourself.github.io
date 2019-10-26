@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="textbook.xsl" ?>
+
+<textbooks>
+    <textbook>
+        <title>Differential Equations with Boundary-Value Problems</title>
+        <BookNumber>1</BookNumber>
+        <author>
+            <FullName>Dennis G. Zill and Michael R. Cullen</FullName>
+        </author>
+        <publisher>
+            <publishercomp>
+                 Cengage Learning
+            </publishercomp>
+            <www>http://www.cengage.com.pr</www>
+        </publisher>
+        <year>2008</year>
+        <cover type="hardcover">Hardcover</cover>
+        <ISBN>ISBN-13: 978-0-495-10836-8</ISBN>
+        <ISBN>ISBN-10: 0-495-10836-7</ISBN>
+        <edition>7th edition</edition>
+        <price>$249.95</price>
+        
+       
+    </textbook>
+
+    <textbook>
+        <title>Internet and World Wide Web How To Program</title>
+        <BookNumber>2</BookNumber>
+        <author>
+            <FullName>Paul Deitel, Harvey Deitel, and Abbey Deitel</FullName>
+        </author>
+        <publisher>
+            <publishercomp>Pearson</publishercomp>
+            <www>https://www.pearson.com</www>
+        </publisher>
+        <year>2011</year>
+        <cover type="SoftCover">Softcover</cover>
+        <ISBN>ISBN-10: 0132151006</ISBN>
+        <ISBN>ISBN-13: 978-0132151009</ISBN>
+        <edition>3th edition</edition>
+        <price> $159.99</price>
+    </textbook>
+</textbooks>
